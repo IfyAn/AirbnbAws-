@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import { View, TextInput, Text, FlatList, Pressable } from "react-native";
 import styles from './styles.js';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import SuggestionRow from "./SuggestionRow";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 const DestinationSearchScreen = (props) => {
   const navigation = useNavigation();
+  const route=useRoute()
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete
@@ -14,7 +15,7 @@ const DestinationSearchScreen = (props) => {
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
             console.log(data, details);
-            navigation.navigate('Guests')
+            navigation.navigate('Guests', { viewport: details.geometry.viewport });
           }}
           query={{
             key: 'AIzaSyDFnSlKwJC3PaZ3V7vDR0uKE0TEl28BOts',

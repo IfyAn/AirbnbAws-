@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import Router from './src/navigation/Router';
 //import 'react-native-gesture-handler';
-//import HomeScreen from './src/screens/Home';
+import { withAuthenticator } from 'aws-amplify-react-native'
 // import Post from './src/components/Post';
 // import feed from './assets/data/feed';
 // import SearchResultsScreen from './src/screens/SearchResults';
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default App;
+export default withAuthenticator(App)
