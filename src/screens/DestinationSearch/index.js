@@ -11,22 +11,6 @@ const DestinationSearchScreen = (props) => {
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete
-          placeholder='Where are you going?'
-          onPress={(data, details = null) => {
-            // 'details' is provided when fetchDetails = true
-            console.log(data, details);
-            navigation.navigate('Guests', { viewport: details.geometry.viewport });
-          }}
-          query={{
-            key: 'AIzaSyDFnSlKwJC3PaZ3V7vDR0uKE0TEl28BOts',
-            language: 'en',
-            types: '(cities)',
-          }}
-          suppressDefaultStyles
-          renderRow={(item) => <SuggestionRow item={item} />}
-        />
-      
-      {/* <GooglePlacesAutocomplete
         placeholder='Where are you going?'
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
@@ -44,7 +28,7 @@ const DestinationSearchScreen = (props) => {
         }}
         suppressDefaultStyles
         renderRow={(item) => <SuggestionRow item={item} />}
-      /> */}
+      />
       
     </View>
   );
